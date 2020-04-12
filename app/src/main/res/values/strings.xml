@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GitHub Stars</string>
+    <string name="app_name">GitHub Search</string>
     <string name="title_search">Search</string>
     <string name="title_star">Favorite</string>
     <string name="title_info">Info</string>
