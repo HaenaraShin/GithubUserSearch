@@ -22,10 +22,12 @@ class GithubUserRepoImpl : GithubUserRepo {
         }
     }
 
-    private fun getFromApi(name: String,
-                           page: Int,
-                           success: (List<User>) -> Unit,
-                           error: (String) -> Unit) {
+    private fun getFromApi(
+        name: String,
+        page: Int,
+        success: (List<User>) -> Unit,
+        error: (String) -> Unit
+    ) {
         GitHubSearchRetrofit.create().searchUsers("$name+in:login", page).enqueue(
             object : Callback<UserList> {
                 override fun onFailure(call: Call<UserList>, t: Throwable) {
@@ -48,17 +50,19 @@ class GithubUserRepoImpl : GithubUserRepo {
         cached[Pair(name, page)] = items
     }
 
-    private fun getFromCache(name: String,
-                             page: Int,
-                             success: (List<User>) -> Unit,
-                             error: (String) -> Unit) {
+    private fun getFromCache(
+        name: String,
+        page: Int,
+        success: (List<User>) -> Unit,
+        error: (String) -> Unit
+    ) {
         try {
             success(cached[Pair(name, page)]!!)
-        } catch (e : NoSuchElementException) {
+        } catch (e: NoSuchElementException) {
             error(e.localizedMessage ?: "")
         }
     }
 
-    private fun isCached(name : String, page : Int) = cached.containsKey(Pair(name, page))
+    private fun isCached(name: String, page: Int) = cached.containsKey(Pair(name, page))
 
 }

@@ -40,4 +40,8 @@ class SearchViewModel(
     fun onScrollFinished() {
         getUserList(lastKeyword)
     }
+
+    fun clearList() {
+        _users.value = arrayListOf()
+    }
 }

@@ -63,6 +63,8 @@ class SearchFragment : Fragment() {
                 if (p0?.trim()?.isNotEmpty() == true) {
                     val keyword = p0.trim().toString()
                     searchViewModel.getUserList(keyword)
+                } else {
+                    searchViewModel.clearList()
                 }
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) { }

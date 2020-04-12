@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         navView.setupWithNavController(navController)
 
-        if (AUTH_TOKEN.isEmpty()) {
+        if (AUTH_TOKEN == "null") {
             Toast.makeText(this, "⚠️ GitHub API 인증 토큰이 없습니다 ⚠️", Toast.LENGTH_SHORT).show()
         }
     }
